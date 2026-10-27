@@ -6,7 +6,7 @@ import { env } from "@/config/env";
 import { i18n } from "@/i18n/i18n";
 import { queryClient } from "./query-client";
 import { router } from "./router";
-import { VercelInsights } from "./VercelInsights";
+
 
 // Devtools only in development, and in their own chunk.
 const QueryDevtools = env.isDev
