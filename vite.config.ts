@@ -16,8 +16,8 @@ export default defineConfig(({ mode }) => ({
     react(),
     babel({ presets: [reactCompilerPreset()] }),
     firmwarePlugin({
-      // VERCEL is set on Vercel's servers and by `vercel build`: a deployed guide must have its code.
-      required: Boolean(process.env.VERCEL),
+       // Fail the build only when a firmware checkout exists but cannot be read.
+      required: Boolean(loadEnv(mode, process.cwd(), "").FIRMWARE_DIR),
       root: fileURLToPath(
         new URL(loadEnv(mode, process.cwd(), "").FIRMWARE_DIR || "../esp-labs", import.meta.url),
       ),
